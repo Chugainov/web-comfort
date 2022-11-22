@@ -29,14 +29,5 @@ function sendToChat()
     });
 
     db.table('messages').clear();
-    
-    // const text = 'Ай ай ай! Как нехорошо!'
-    
-    // fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${text}`, params);
   });
-
-  // const db = new Dexie("UnsyncData");
-  // db.messages.get(1).then(function (item) {
-  //   alert("Friend with id 1: " + item.text);
-  // });
 }
