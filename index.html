@@ -10,10 +10,26 @@
         .shower {
             --slide-ratio: calc(16 / 9);
             --color-gray: #aaa;
+            --progress-size: 25px;
         }
 
         .slide .shout-less {
             font-size: 80px;
+        }
+
+        .slide::after {
+            background-image: url("pictures/banner.png");
+            background-position-y: bottom;
+            color: rgb(44, 18, 18);
+            padding-top: 30px;
+            padding-right: 5px;
+            left: 900px;
+        }
+
+        .progress::before {
+            background-color: transparent;
+            background-image: url("pictures/line.png");
+            transform: none;
         }
     </style>
 </head>
@@ -97,7 +113,9 @@
     </section>
 
     <section class="slide clear">
-        <h2 class="shout shout-less shrink">Комфортно/некомфортно</h2>
+        <figure>
+            <img class="cover" src="pictures/комфортно - некомфортно.png" alt="Comfortable versus uncomfortable">
+        </figure>
     </section>
 
     <section class="slide">
@@ -109,16 +127,8 @@
         </p>
     </section>
 
-    <section class="slide clear">
-        <h2 class="shout shout-less shrink">В чём заключается комфорт использования сайта?</h2>
-    </section>
-    
-    <section class="slide clear">
-        <h2 class="shout shout-less shrink">Разработчик задумался</h2>
-    </section>
-
-    <section class="slide">
-        <h2>В чём заключается комфорт использования сайта?</h2>
+    <section class="slide" id="whatIsComfort">
+        <h2>В чём заключается <br>комфорт использования сайта?</h2>
         <ul>
             <li>
                 Не тормозит
@@ -130,27 +140,71 @@
                 Не использует лишние ресурсы
             </li>
             <li class="next">
-                Пункт 4
+                Не навязывает использование чего-либо
+            </li>
+            <li class="next">
+                Визуализирует процессы
             </li>
         </ul>
+        <figure>
+            <img class="cover" src="pictures/what is comfort.png" alt="">
+        </figure>
     </section>
 
     <section class="slide clear">
-        <h2 class="shout shout-less shrink">Пришли к сове на конференцию</h2>
+        <figure>
+            <img src="pictures/owl.png" alt="" class="cover" style="transform: translate(-50%, -50%) scale(-1, 1);">
+        </figure>
     </section>
-    
-    <section class="slide clear">
-        <h2 class="shout shout-less shrink">Сервис воркер — прокси, который умеет обрабатывать запросы</h2>
+
+    <section class="slide">
+        <h2>Service Worker</h2>
+        <div class="place left list">
+            <ul>
+                <li class="next">
+                    Встроенный в браузер прокси
+                </li>
+                <li class="next">
+                    JavaScript файл
+                </li>
+                <li class="next">
+                    Может перехватывать и модифицировать запросы
+                </li>
+                <li class="next">
+                    Работает в отдельном потоке
+                </li>
+            </ul>
+        </div>
+
+        <img src="pictures/owl.png" alt="" class="place right owl">
+        <style>
+            .slide .owl {
+                width: 30%;
+            }
+
+            .slide .place.list {
+                left: 60px
+            }
+        </style>
     </section>
 
     <section class="slide clear">
-        <h2 class="shout shout-less shrink">Например отложенный запрос формы</h2>
+        <figure>
+            <img class="cover" src="pictures/создал.jpg" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Оптимизируем форму</h2>
+        <figure>
+            <img class="cover" src="pictures/demand-sending.png" alt="Scheme of demand sending">
+        </figure>
     </section>
 
     <section class="slide clear">
         <h2 class="shout shout-less shrink">Пример с сервис воркером</h2>
     </section>
-    
+
     <section class="slide clear">
         <h2 class="shout shout-less shrink">Первый раз пришли бить разработчика</h2>
     </section>
