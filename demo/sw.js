@@ -20,7 +20,7 @@ function sendToChat()
     const token = "696487450:AAGmtw4zV9YS1PtMgmsFLyw9tg_I5HnSUHI";
     const chat_id = "@sw-test";
     const params = {
-      method: 'POST',
+      method: 'GET',
     }
 
     db.table('messages').each(function (item) {
