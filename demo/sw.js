@@ -17,7 +17,7 @@ self.addEventListener('sync', function(event) {
 function sendToChat()
 {
   return new Dexie('UnsyncData').open().then(function (db) {
-    const token = "696487450:AAGmtw4zV9YS1PtMgmsFLyw9tg_I5HnSUHI";
+    const token = "696487450:AAHkp3Dh2Akp0lXFrjevLicuSoFbV3I2XAc";
     const chat_id = "@podlodka_sw";
     const params = {
       method: 'POST',
