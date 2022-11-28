@@ -17,6 +17,22 @@
             font-size: 80px;
         }
 
+        .cover.shrink-img-80 {
+            max-width: 80%;
+        }
+
+        .cover.shrink-img-70 {
+            max-width: 70%;
+        }
+
+        .cover.cover-down {
+            top: 55%;
+        }
+
+        .small-code {
+            font-size: 0.9em;
+        }
+
         .slide::after {
             background-image: url("pictures/banner.png");
             background-position-y: bottom;
@@ -112,6 +128,39 @@
     </section>
 
     <section class="slide clear">
+        <h2 class="shout shout-less">
+            <a href="https://medium.com/habit-of-introspection/the-ux-fund-investing-50-000-in-10-companies-10-years-later-6fc65bd35e7a">UX фонд</a>  
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Результаты UX фонда</h2>
+        <figure>
+            <img class="cover shrink-img-80 cover-down" src="pictures/UX-fund.png" alt="UX fund result">
+        </figure>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout shout-less">
+            Исследование <br>
+            <a href="https://topdesignfirms.com/web-design/blog/website-redesign-checklist">Top design firms</a>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Исследование Top design firms</h2>
+        <figure>
+            <img class="cover shrink-img-70 cover-down" src="pictures/top-design-42.png" alt="42 percent will leave due to poor functionality">
+        </figure>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout shout-less">
+            UX — это про комфорт использования сайта
+        </h2>
+    </section>
+
+    <section class="slide clear">
         <figure>
             <img class="cover" src="pictures/комфортно - некомфортно.png" alt="Comfortable versus uncomfortable">
         </figure>
@@ -130,7 +179,7 @@
     </section>
 
     <section class="slide clear">
-        <h2 class="shout shout-less shrink">Комфорт — отсутствие дискомфорта</h2>
+        <h2 class="shout shout-less">Комфорт — отсутствие дискомфорта</h2>
         <figure>
             <img class="cover" src="pictures/what is comfort.png" alt="">
         </figure>
@@ -174,7 +223,7 @@
         <div class="next round-text round-text-1">Используй <b>сервис воркеры</b>!</div>
         <div class="next round-text round-text-2"><b>IndexedDB</b> — это круто!</div>
         <div class="next round-text round-text-3">Учите <b>Background Sync API</b></div>
-        <div class="next round-text round-text-4">Учите <b>Background Sync API</b></div>
+        <!-- <div class="next round-text round-text-4">Учите <b>Background Sync API</b></div> -->
         <style>
             .slide .owl {
                 width: 30%;
@@ -217,6 +266,56 @@
     </section>
 
     <section class="slide">
+        <h2>Что такое сервис-воркер?</h2>
+        <p>Сервис-воркер — это javascript файл, который работает в отдельном потоке. Может перехватывать запросы и модифицировать их.</p>
+        <figure>
+            <img class="cover sw-schema next" src="pictures/service-worker.svg" alt="схема расположения сервис-воркера">
+        </figure>
+        <style>
+            .cover.sw-schema {
+                top: 70%;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Что такое Background Sync API?</h2>
+        <p>Это часть Service Worker API. Обычно севрис-воркер работает только когда страница открыта у пользователя. </p>
+        <p>Background Sync API позволяет выполнить синхронизацию повторно, если прошлая попытка была неуспешной. </p>
+    </section>
+
+    <section class="slide">
+        <h2>Background Sync API <br>(в основном приложении)</h2>
+        <pre>
+          <code>navigator.serviceWorker.ready</code>
+          <code>  .then(function(swRegistration) {</code>
+          <code>    return swRegistration.sync.register(<mark>'mySync'</mark>);</code>
+          <code>  });</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Background Sync API <br>(внутри сервис-воркера)</h2>
+        <pre>
+          <code>self.addEventListener('sync', function(event) {</code>
+          <code>  if (event.tag == <mark>'mySync'</mark>) {</code>
+          <code>    event.waitUntil(<mark>doSomething()</mark>);</code>
+          <code>  }</code>
+          <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Что такое IndexedDB?</h2>
+        <p>Это низкоуровневое API для хранения данных на клиенте. Позволяет хранить больше данных, чем local storage.</p>
+        <p>В отличие от local storage, API работает асинхронно, поэтому хорошо сочетается с сервис-воркерами.</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Посидел подумал</h2>
+    </section>
+
+    <section class="slide">
         <h2>Оптимизируем форму</h2>
         <figure>
             <img class="cover" src="pictures/demand-sending.png" alt="Scheme of demand sending">
@@ -224,7 +323,7 @@
     </section>
 
     <section class="slide clear">
-        <h2 class="shout shout-less shrink">Пример</h2>
+        <h2 class="shout shout-less shrink">Демо 1</h2>
     </section>
 
     <section class="slide clear">
@@ -234,6 +333,91 @@
     </section>
 
     <section class="slide">
+        <h2>Претензии зайцев:</h2>
+        <ul>
+            <li class="next">
+                Мы не поняли, что мы оффлайн
+            </li>
+            <li class="next">
+                Никто не сообщил, что данные куда-то отправятся потом
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less shrink">Проблема: <br>Недостаток информирования</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less">window.navigator</h2>
+    </section>
+
+    <section class="slide">
+        <h2>window.navigator</h2>
+        <p>Объект <b>navigator</b> предназначен для предоставления подробной <br>
+            информации об окружении, в котором запущен сайт или веб-приложение.</p>
+    </section>
+
+    <section class="slide">
+        <h2>navigator.onLine</h2>
+        <pre class="small-code">
+          <code>function updateStatus(event) {</code>
+          <code>  const condition = navigator.onLine ? "Вы онлайн" : "Вы оффлайн";</code>
+          <code>  <mark>...</mark></code>
+          <code>}</code>
+          <code> </code>
+          <code>window.addEventListener('online', updateStatus);</code>
+          <code>window.addEventListener('offline', updateStatus);</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Notification API</h2>
+        <p>Notification API позволяет показывать уведомления пользователю даже при закрытой странице.</p>
+        <p>В отличие от Backgroun Sync API, требует получить разрешение на использование.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Получаем разрешение</h2>
+        <pre class="small-code">
+            <code>Notification.requestPermission(permission => {</code>
+            <code>  if (permission === 'granted'){</code>
+            <code>      <mark>registerBackgroundSync()</mark>;</code>
+            <code>  }</code>
+            <code>  else console.error("Permission was not granted.");</code>
+            <code>});</code>
+          </pre>
+          <style>
+            .small-code {
+                font-size: 0.9em;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Показываем сообщение</h2>
+        <pre class="small-code">
+            <code>self.registration.showNotification(title, options);</code>
+            <code> </code>
+            <code>const options = {</code>
+            <code>  icon: "url иконки",</code>
+            <code>  body: "Дополнительный контент",</code>
+            <code>  tag: "ID нотификации для взаимодействия",</code>
+            <code>  vibrate: [300, 100, 400],</code>
+            <code>}</code>
+          </pre>
+          <style>
+            .small-code {
+                font-size: 0.9em;
+            }
+        </style>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout shout-less">Демо 2</h2>
+    </section>
+
+    <!-- <section class="slide">
         <h2>Почему это решение может быть некомфортным?</h2>
         <ul>
             <li class="next">
@@ -249,68 +433,90 @@
                 На старых устройствах не работает
             </li>
         </ul>
+    </section> -->
+
+    <section class="slide">
+        <h2 class="shout shout-less">Пришёл кот</h2>
     </section>
 
     <section class="slide">
-        <h2>Данные потеряли актуальность</h2>
-        <p></p>
-    </section>
-    <section class="slide">
-        <h2>Мало ресурсов у пользователя</h2>
-    </section>
-    <section class="slide">
-        <h2>Пункт 2</h2>
-    </section>
-    <section class="slide">
-        <h2>Пункт 3</h2>
-    </section>
-
-    <section class="slide clear">
-        <h2 class="shout shout-less shrink">Пример 2</h2>
-    </section>
-
-    <section class="slide">
-        <h2>Кому это решение может быть плохим?</h2>
+        <h2>Претензии кота:</h2>
         <ul>
-            <li>
-                <p> Может потерять актуальность </p>
-            </li>
-            <li>
-                <p> Нет ресурсов для сервис воркера </p>
-            </li>
-            <li>
-                <p> Нет пробле </p>
-            </li>
-            <li>
-                <p> Пункт 4 </p>
+            <li class="next">
+                Пока всё отправилось, мне уже не нужно их отправлять
             </li>
         </ul>
     </section>
 
     <section class="slide">
-        <h2>Пункт 1</h2>
+        <h2 class="shout shout-less shrink">Проблема: <br>Данные потеряли актуальность</h2>
     </section>
+
     <section class="slide">
-        <h2>Пункт 2</h2>
+        <h2>Данные потеряли актуальность</h2>
+        <ul>
+            <li class="next">Не везде подходит</li>
+            <li class="next">Дать возможность отменить отправку</li>
+        </ul>
     </section>
+
     <section class="slide">
-        <h2>Пункт 3</h2>
+        <h2>Отменить отправку</h2>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout shout-less">Демо 3</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less">Пришла улитка с ZTE Blade 2</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less shrink">Проблема: <br>Мало ресурсов у пользователя</h2>
+    </section>
+    
+    <section class="slide">
+        <h2 class="shout shout-less">Какие ресурсы вообще есть?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less">Проблема: <br>Вообще ничего не работает</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less">Загрузка данных и прогрессивное улучшение</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Сперва о сервис воркерах</h2>
+        <ul>
+            <li class="next">
+                <p> Грамотно стратегию кэширования </p>
+            </li>
+            <li class="next">
+                <p> Их обновление — боль </p>
+            </li>
+            <li class="next">
+                <p> Тестирование — боль </p>
+            </li>
+        </ul>
     </section>
 
     <section class="slide">
         <h2>О чём подумать?</h2>
         <ul>
-            <li>
-                <p> Пункт 1 </p>
+            <li  class="next">
+                <p> Кому точно это нужно? </p>
             </li>
-            <li>
-                <p> Пункт 2 </p>
+            <li  class="next">
+                <p> Какие у этого требования к ресурсам? </p>
             </li>
-            <li>
-                <p> Пункт 3 </p>
+            <li  class="next">
+                <p> Что делать, если у пользователя этого нет? </p>
             </li>
-            <li>
-                <p> Пункт 4 </p>
+            <li  class="next">
+                <p> Как позволить пользователю решать самому? </p>
             </li>
         </ul>
     </section>
