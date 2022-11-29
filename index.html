@@ -208,11 +208,15 @@
             <img class="cover" src="pictures/what is comfort.png" alt="">
         </figure>
     </section>
-
+    
     <section class="slide clear">
         <figure>
-            <img class="cover" src="pictures/junior.jpg" alt="">
+            <img class="cover" src="pictures/lion.jpg" alt="Lion brings requirements to dev">
         </figure>
+    </section>
+
+    <section class="slide clear">
+        <h2 class="shout shout-less shrink">Демо 0</h2>
     </section>
 
     <section class="slide clear">
@@ -227,6 +231,7 @@
         <style>
             .slide .owl {
                 width: 30%;
+                left: 200px;
             }
 
             .round-text {
@@ -237,18 +242,18 @@
             .round-text-1 {
                 transform: rotate(-20deg);
                 top: 165px;
-                left: 315px;
+                left: 515px;
             }
 
             .round-text-2 {
                 top: 250px;
-                left: 320px;
+                left: 520px;
             }
 
             .round-text-3 {
                 transform: rotate(20deg);
                 top: 345px;
-                left: 315px;
+                left: 515px;
             }
 
             .round-text-4 {
@@ -307,18 +312,34 @@
 
     <section class="slide">
         <h2>Что такое IndexedDB?</h2>
-        <p>Это низкоуровневое API для хранения данных на клиенте. Позволяет хранить больше данных, чем local storage.</p>
-        <p>В отличие от local storage, API работает асинхронно, поэтому хорошо сочетается с сервис-воркерами.</p>
+        <p>Это низкоуровневое API для хранения данных в формате ключ-значение на клиенте.</p>
     </section>
 
     <section class="slide">
-        <h2 class="shout">Посидел подумал</h2>
+        <h2 class="next">Почему не localStorage?</h2>
+        <ul>
+            <li class="next">Может хранить гораздо больше данных</li>
+            <li class="next">Хранит нативныне JS объекты без сериализации</li>
+            <li class="next">API работает асинхронно</li>
+        </ul>
+    </section>
+
+    <section class="slide clear">
+        <figure>
+            <img class="cover" src="pictures/first-idea.jpg" alt="Lion brings requirements to dev">
+        </figure>
     </section>
 
     <section class="slide">
         <h2>Оптимизируем форму</h2>
         <figure>
             <img class="cover" src="pictures/demand-sending.png" alt="Scheme of demand sending">
+        </figure>
+    </section>
+
+    <section class="slide clear">
+        <figure>
+            <img class="cover" src="pictures/branch.jpg" alt="Dev brings the site to customer">
         </figure>
     </section>
 
@@ -407,24 +428,6 @@
         <h2 class="shout shout-less">Демо 2</h2>
     </section>
 
-    <!-- <section class="slide">
-        <h2>Почему это решение может быть некомфортным?</h2>
-        <ul>
-            <li class="next">
-                Данные потеряли актуальность
-            </li>
-            <li class="next">
-                Мало ресурсов у пользователя
-            </li>
-            <li class="next">
-                Пользователю не нужна эта фича
-            </li>
-            <li class="next">
-                На старых устройствах не работает
-            </li>
-        </ul>
-    </section> -->
-
     <section class="slide clear">
         <figure>
             <img class="cover" src="pictures/slon.jpg" alt="">
@@ -445,9 +448,10 @@
     </section>
 
     <section class="slide">
-        <h2>Данные потеряли актуальность</h2>
+        <h2>Что можно сделать?</h2>
         <ul>
-            <li class="next">Не везде подходит</li>
+            <li class="next">Оценить время актуальности данных</li>
+            <li class="next">Добавить таймаут на отправку данных</li>
             <li class="next">Дать возможность отменить отправку</li>
         </ul>
     </section>
@@ -456,7 +460,7 @@
         <h2>Отменить отправку</h2>
         <pre class="small-code">
             <code>clearButton.addEventListener("click", () => {</code>
-            <code>  clearDataStorage();</code>
+            <code>  clearIndexedDbStorage();</code>
             <code>});</code>
         </pre>
     </section>
@@ -479,8 +483,20 @@
         <h2>Какие ресурсы вообще есть?</h2>
         <ul>
             <li class="next">localStorage/sessionStorage</li>
-            <li class="next"></li>
+            <li class="next">Cookie</li>
+            <li class="next">IndexedDB</li>
+            <li class="next">Cache API</li>
+            <li class="next">Дисковое пространство устройства</li>
+            <li class="next">Оперативная память устройства</li>
+            <li class="next">Сеть</li>
         </ul>
+    </section>
+
+    <section class="slide">
+        <h2>localStorage</h2>
+        <p>Хранит ~5 МБ* пар ключ-значение неограниченное** время.</p>
+        <p class="next">*Зависит от браузера. Некоторые позволяют увеличить это хранилище.</p>
+        <p class="next">**Некоторые браузеры очищают хранилище при переполнении. Safari чистит раз в 7 дней.</p>
     </section>
 
     <section class="slide">
