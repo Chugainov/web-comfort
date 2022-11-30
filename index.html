@@ -13,6 +13,10 @@
             --progress-size: 25px;
         }
 
+        .slide {
+            background-image: url(./pictures/background.png);
+        }
+
         .slide .shout-less {
             font-size: 80px;
         }
@@ -484,8 +488,8 @@
         <ul>
             <li class="next">localStorage/sessionStorage</li>
             <li class="next">Cookie</li>
-            <li class="next">IndexedDB</li>
             <li class="next">Cache API</li>
+            <li class="next">IndexedDB</li>
             <li class="next">Дисковое пространство устройства</li>
             <li class="next">Оперативная память устройства</li>
             <li class="next">Сеть</li>
@@ -496,7 +500,72 @@
         <h2>localStorage</h2>
         <p>Хранит ~5 МБ* пар ключ-значение неограниченное** время.</p>
         <p class="next">*Зависит от браузера. Некоторые позволяют увеличить это хранилище.</p>
-        <p class="next">**Некоторые браузеры очищают хранилище при переполнении. Safari чистит раз в 7 дней.</p>
+        <p class="next">**Хранилище может очищаться при переполнении. Safari чистит раз в 7 дней.</p>
+    </section>
+
+    <section class="slide">
+        <h2>sessionStorage</h2>
+        <p>Хранит ~5 МБ пар ключ-значение на время жизни сессии.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Cookie</h2>
+        <p>Хранит ~4 КБ данных, которые можно передавать на сервер.</p>
+        <p class="next">Срок хранения устанавливается при создании.</p>
+        <p class="next">Могут быть защищены от доступа на клиенте.</p>
+    </section>
+
+    <section class="slide">
+        <h2>IndexedDB и Cache API</h2>
+        <figure style="text-align: center;">
+            <img src="pictures/quotas.png" width="65%" alt="">
+        </figure>
+        <!-- Microsoft Edge, FireFox, Chrome and Opera -->
+    </section>
+
+    <section class="slide">
+        <h2>Дисковое пространство устройства</h2>
+        <ul>
+            <li class="next">
+                <p> <b>Chrome</b>: до 80% от объёма диска. Один источник до 60% от всей квоты.</p>
+            </li>
+            <li class="next">
+                <p> <b>Firefox</b>: до 50% объёма диска. Домены в пределах одной группы до 2 ГБ.</p>
+            </li>
+            <li class="next">
+                <p> <b>Safari</b>: до 1 ГБ. При достижении лимита предлагает увеличить на 200 МБ.</p>
+            </li>
+            <li class="next">
+                <p> <b>IE 10+</b>: до 250 МБ. Спрашивает, если требуется сохранить более 10 МБ.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>StorageManager API</h2>
+        <pre>
+            <code>navigator.storage.estimate()</code>
+        </pre>
+        <pre class="next">
+            <code>{</code>
+            <code>  quota, <span class="comment">// Приблизительное количество всех доступных байт</span></code>
+            <code>  usage, <span class="comment">// Приблизительное количество используемых байт</span></code>
+            <code>  usageDetails, <span class="comment">// Детальное описание использования данных</span></code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>navigator.storage.estimate()</h2>
+        <figure style="text-align: center;">
+            <img src="pictures/est.png" width="65%" alt="">
+        </figure>
+    </section>
+
+    <section class="slide clear">
+        <figure>
+            <img class="cover" src="pictures/Дельфин.jpg" alt="">
+        </figure>
     </section>
 
     <section class="slide">
