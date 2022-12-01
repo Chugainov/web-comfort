@@ -17,6 +17,14 @@
             background-image: url(./pictures/background.png);
         }
 
+        .slide h2 {
+            color:rgba(44, 18, 18, .8);
+        }
+
+        .slide {
+            color:rgba(44, 18, 18, .8);
+        }
+
         .slide .shout-less {
             font-size: 80px;
         }
@@ -497,15 +505,15 @@
     </section>
 
     <section class="slide">
+        <h2>sessionStorage</h2>
+        <p>Хранит ~5 МБ пар ключ-значение на время жизни сессии.</p>
+    </section>
+
+    <section class="slide">
         <h2>localStorage</h2>
         <p>Хранит ~5 МБ* пар ключ-значение неограниченное** время.</p>
         <p class="next">*Зависит от браузера. Некоторые позволяют увеличить это хранилище.</p>
         <p class="next">**Хранилище может очищаться при переполнении. Safari чистит раз в 7 дней.</p>
-    </section>
-
-    <section class="slide">
-        <h2>sessionStorage</h2>
-        <p>Хранит ~5 МБ пар ключ-значение на время жизни сессии.</p>
     </section>
 
     <section class="slide">
@@ -562,6 +570,41 @@
         </figure>
     </section>
 
+    <section class="slide">
+        <h2>Оперативная память устройства</h2>
+        <pre>
+            <code>navigator.deviceMemory</code>
+        </pre>
+        <ul>
+            <li class="next">
+                <p>Возвращает значения в ГБ</p>
+            </li>
+            <li class="next">
+                <p>
+                    Значение приблизительное: <br>
+                    <span class="next tabulation">Реальное значение округляется до ближайшей степени двойки </span><br>
+                    <span class="next tabulation">Потом результат делится на 1024 </span><br>
+                    <span class="next tabulation">Значение от 0.25 до 8 </span><br>
+                </p>
+            </li>
+        </ul>
+        <style>
+            .tabulation {
+                margin-left: 30px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Рекомендация</h2>
+        <blockquote>
+            <p>Команде нужно было решить, как избежать использование сервис-воркера <br>
+                на "слабых" устройствах. Так как нет однозначного определения "слабого",<br>
+                было принято считать "слабыми" те, у кого &lt; 2 ГБ.</p>
+        </blockquote>
+        <figcaption><a href="https://web.dev/google-search-sw/">SW для Google search</a></figcaption>
+    </section>
+
     <section class="slide clear">
         <figure>
             <img class="cover" src="pictures/Дельфин.jpg" alt="">
@@ -610,7 +653,7 @@
     </section>
 
     <section class="slide clear">
-        <h2 class="shout shout-less shrink">Thank you!</h2>
+        <h2 class="shout shout-less shrink">Спасибо!</h2>
     </section>
 
     <div class="progress"></div>
