@@ -54,6 +54,10 @@
             left: 900px;
         }
 
+        .slide.without-banner::after {
+            display: none;
+        }
+
         .progress::before {
             background-color: transparent;
             background-image: url("pictures/line.png");
@@ -615,8 +619,43 @@
         <h2 class="shout shout-less">Проблема: <br>Вообще ничего не работает</h2>
     </section>
 
+    <section class="slide without-banner">
+        <figure>
+            <img class="cover" src="pictures/SW-CIU.png" alt="">
+        </figure>
+    </section>
+
     <section class="slide">
-        <h2 class="shout shout-less">Загрузка данных и прогрессивное улучшение</h2>
+        <figure>
+            <img class="cover" src="pictures/BS-CIU.png" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <figure>
+            <img class="cover" src="pictures/SM-CIU.png" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+    <h2>Прогрессивно улучшайте!</h2>
+        <pre>
+            <code>if (<mark>'serviceWorker' in navigator</mark>) { </code>
+            <code>  navigator.serviceWorker.register('./sw.js');</code>
+            <code>};</code>
+            <code> </code>
+            <code>if (<mark>'SyncManager' in window</mark>) { </code>
+            <code>  ...</code>
+            <code>};</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less">Ленивая загрузка</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shout-less">User hints</h2>
     </section>
 
     <section class="slide">
@@ -637,17 +676,20 @@
     <section class="slide">
         <h2>О чём подумать?</h2>
         <ul>
-            <li  class="next">
-                <p> Кому точно это нужно? </p>
+            <li class="next">
+                <p> Нужно ли <b>ЭТО</b> пользователю? </p>
             </li>
-            <li  class="next">
-                <p> Какие у этого требования к ресурсам? </p>
+            <li class="next">
+                <p> Когда <b>ЭТО</b> нужно пользователю? </p>
             </li>
-            <li  class="next">
-                <p> Что делать, если у пользователя этого нет? </p>
+            <li class="next">
+                <p> Сколько ресурсов <b>ЭТО</b> потребует и есть ли они у пользователя? </p>
             </li>
-            <li  class="next">
-                <p> Как позволить пользователю решать самому? </p>
+            <li class="next">
+                <p> Что делать, если у пользователя <b>ЭТОГО</b> нет? </p>
+            </li>
+            <li class="next">
+                <p> Как позволить пользователю самому управлять <b>ЭТИМ</b>? </p>
             </li>
         </ul>
     </section>
