@@ -74,7 +74,7 @@
     </header>
 
     <section class="slide clear" id="cover">
-        <h2 class="shout">Комфорт</h2>
+        <h2 class="shout">Serivce Worker API</h2>
         <figure>
             <img class="cover" src="pictures/cover.jpeg" alt="">
         </figure>
@@ -287,10 +287,10 @@
     </section>
 
     <section class="slide">
-        <h2>Что такое сервис-воркер?</h2>
-        <p>Сервис-воркер — это javascript файл, который работает в отдельном потоке. Может перехватывать запросы и модифицировать их.</p>
+        <h2>Что такое сервис воркер?</h2>
+        <p>Сервис воркер — это javascript файл, который работает в отдельном потоке. Может перехватывать запросы и модифицировать их.</p>
         <figure>
-            <img class="cover sw-schema next" src="pictures/service-worker.svg" alt="схема расположения сервис-воркера">
+            <img class="cover sw-schema next" src="pictures/service-worker.svg" alt="схема расположения сервис воркера">
         </figure>
         <style>
             .cover.sw-schema {
@@ -316,7 +316,7 @@
     </section>
 
     <section class="slide">
-        <h2>Background Sync API <br>(внутри сервис-воркера)</h2>
+        <h2>Background Sync API <br>(внутри сервис воркера)</h2>
         <pre>
           <code>self.addEventListener('sync', function(event) {</code>
           <code>  if (event.tag == <mark>'mySync'</mark>) {</code>
@@ -602,11 +602,65 @@
     <section class="slide">
         <h2>Рекомендация</h2>
         <blockquote>
-            <p>Команде нужно было решить, как избежать использование сервис-воркера <br>
+            <p>Команде нужно было решить, как избежать использование сервис воркера <br>
                 на "слабых" устройствах. Так как нет однозначного определения "слабого",<br>
                 было принято считать "слабыми" те, у кого &lt; 2 ГБ.</p>
         </blockquote>
         <figcaption><a href="https://web.dev/google-search-sw/">SW для Google search</a></figcaption>
+    </section>
+    
+    <section class="slide">
+        <h2>Сеть</h2>
+        <pre>
+            <code>navigator.connection</code>
+        </pre>
+        <p>
+            Возвращает данные о сети в виде объекта NetworkInformation. <br>
+            <a href="https://coyotess.medium.com/how-to-get-information-about-user-network-connection-in-javascript-4d63fd58f15f">
+                Статья с пояснениями по каждому полю.
+            </a>
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>NetworkInformation</h2>
+        <figure style="text-align: center;">
+            <img src="pictures/connection.png" width="65%" alt="">
+        </figure>
+    </section>
+
+    <section class="slide">
+        <h2>Как использовать знания о ресурсах?</h2>
+        <pre>
+            <code>const <mark>version</mark> =</code>
+            <code>  navigator.deviceMemory < 2 ? 'lite' : 'full';</code>
+            <code class="next">const moduleUrl = `path/to/module.${<mark>version</mark>}.js`;</code>
+            <code class="next">...</code>
+            <code class="next">const module = await import(moduleUrl);</code>
+            <code class="next">module.init();</code>
+        </pre>
+    </section>
+    
+    <section class="slide">
+        <h2>User hints</h2>
+        <p>Позволяет отправлять информацию об устройстве в заголовке запроса.</p>
+        <pre>
+            <code>&lt;meta http-equiv="Accept-CH" content="Device-Memory"&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Device client hints</h2>
+        <p>Device-Memory, DPR, Width, Viewport-Width</p>
+
+        <h2>Network client hints</h2>
+        <p>Save-Data, Downlink, ECT, RTT</p>
+    </section>
+
+    <section class="slide">
+        <h2>Intersection Observer API</h2>
+        <p>Вызывает обработчик когда целевой элемент рендерится во вьюпорте.</p>
+        <p>Мы можем вызывать регистрацию сервис воркера только когда пользователь непосредственно дошёл до нужной формы.</p>
     </section>
 
     <section class="slide clear">
@@ -650,35 +704,48 @@
         </pre>
     </section>
 
-    <section class="slide">
-        <h2 class="shout shout-less">Ленивая загрузка</h2>
+    <section class="slide clear">
+        <figure>
+            <img class="cover" src="pictures/final.jpg" alt="">
+        </figure>
     </section>
 
     <section class="slide">
-        <h2 class="shout shout-less">User hints</h2>
+        <figure>
+            <img class="cover" src="pictures/owl.png" alt="">
+        </figure>
     </section>
 
     <section class="slide">
-        <h2>Сперва о сервис воркерах</h2>
+        <h2>А сколько я не затронул <br>только о сервис воркерах?</h2>
         <ul>
             <li class="next">
-                <p> Грамотно стратегию кэширования </p>
+                <p> Выбор стратегии кэширования </p>
             </li>
             <li class="next">
-                <p> Их обновление — боль </p>
+                <p> Обновление сервис воркеров </p>
             </li>
             <li class="next">
-                <p> Тестирование — боль </p>
+                <p> Тестирование сервис воркеров </p>
             </li>
         </ul>
     </section>
 
     <section class="slide">
-        <h2>О чём подумать?</h2>
+        <h2>О чём подумать перед добавлением?</h2>
         <ul>
             <li class="next">
                 <p> Нужно ли <b>ЭТО</b> пользователю? </p>
             </li>
+            <li class="next">
+                <p> Есть ли у вас экспертиза в <b>ЭТОМ</b>? </p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>О чём подумать во время добавления?</h2>
+        <ul>
             <li class="next">
                 <p> Когда <b>ЭТО</b> нужно пользователю? </p>
             </li>
@@ -694,8 +761,24 @@
         </ul>
     </section>
 
+    <section class="slide">
+        <h2>О чём подумать после добавления?</h2>
+        <ul>
+            <li class="next">
+                <p> Насколько <b>ЭТО</b> устарело? </p>
+            </li>
+            <li class="next">
+                <p> Кто <b>ЭТО</b> будет поддерживать? </p>
+            </li>
+        </ul>
+    </section>
+
     <section class="slide clear">
         <h2 class="shout shout-less shrink">Спасибо!</h2>
+    </section>
+    
+    <section class="slide clear">
+        <h2 class="shout shout-less shrink">Вопросы?</h2>
     </section>
 
     <div class="progress"></div>
