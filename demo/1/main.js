@@ -2,7 +2,7 @@ const db = new Dexie("UnsyncData");
 
 db
   .version(1)
-  .stores({messages: 'text'});
+  .stores({messages: 'text', notificationPermission: 'isAllowed'});
 
 function putToLocal(data) {
   return db
@@ -49,14 +49,26 @@ if ('serviceWorker' in navigator) {
 
 const notifyMeCheckbox = document.getElementById('notify-me');
 
+function setPermission(data) {
+  return db
+    .notificationPermission
+    .put({isAllowed: data});
+}
+
 notifyMeCheckbox.addEventListener('change', (event) => {
   if (event.currentTarget.checked) {
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
     } else if (Notification.permission === "granted") {
-      
+      setPermission(true);
     } else if (Notification.permission !== "denied") {
-      Notification.requestPermission();
+      Notification.requestPermission((permission) => {
+        if (permission === "granted") {
+          setPermission(true);
+        } else {
+          setPermission(false);
+        }
+      });
     }
   } else {
     alert('not checked');
@@ -70,6 +82,7 @@ function isOnline() {
   if (navigator.onLine) {
     connectionStatus.innerHTML = 'Вы онлайн! <br>Сообщение будет отправлено немедленно!';
     notifyMeElement.classList.add('notify-me-element--hidden');
+    setPermission(false);
   } else {
     connectionStatus.innerHTML = 'Вы офлайн! <br>Сообщение будет отправлено, когда появится сеть!';
     notifyMeElement.classList.remove('notify-me-element--hidden')

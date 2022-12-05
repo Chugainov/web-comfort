@@ -25,9 +25,11 @@ function sendToChat()
 
     db.table('messages').each(function (item) {
 
-      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${item.text}`, params).then(
-        self.registration.showNotification('Ваше обращение доставлено')
-      );
+      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${item.text}`, params).then(() => {
+        if (db.table('notificationPermission')[0]) {
+          self.registration.showNotification('Ваше обращение доставлено');
+        }
+      });
     });
 
     db.table('messages').clear();
