@@ -50,7 +50,7 @@ function isOnline() {
   let connectionStatus = document.getElementById('connectionStatus');
 
   if (navigator.onLine) {
-    connectionStatus.innerHTML = 'Вы онлайн!';
+    connectionStatus.innerHTML = 'Вы онлайн! <br>Сообщение будет отправлено немедленно!';
   } else {
     connectionStatus.innerHTML = 'Вы офлайн! <br>Сообщение будет отправлено, когда появится сеть!';
   }

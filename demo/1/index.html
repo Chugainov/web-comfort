@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="./dexie.js"></script>
+</head>
+
+<body>
+  <h1 class="header" id="connectionStatus"></h1>
+  <div class="form" id="main-form">
+    <label for="msg">Текст обращения:</label>
+    <div class="parchment">
+      <textarea name="message" id="msg" cols="30" rows="5"></textarea>
+    </div>
+    <button id="send" class="send">Отправить обращение</button>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
