@@ -23,14 +23,16 @@ function sendToChat()
       method: 'POST',
     }
 
-    db.table('messages').each(function (item) {
+    db.table('messages').each((item) => {
 
       fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${item.text}`, params)
         .then(() => {
-          db.table('notificationPermission').get(1).then((permission) => {
-            if (permission.isAllowed) {
-              self.registration.showNotification('Ваше обращение доставлено');
-            }
+          new Dexie('UnsyncData').open().then(db => {
+            db.table('notificationPermission').get(1).then((permission) => {
+              if (permission.isAllowed) {
+                self.registration.showNotification('Ваше обращение доставлено');
+              }
+            });
           });
         });
     });
