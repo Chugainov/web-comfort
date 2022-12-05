@@ -2,7 +2,7 @@ const db = new Dexie("UnsyncData");
 
 db
   .version(1)
-  .stores({messages: 'text', notificationPermission: 'isAllowed'});
+  .stores({messages: 'text', notificationPermission: 'id, isAllowed'});
 
 function putToLocal(data) {
   return db
@@ -52,7 +52,9 @@ const notifyMeCheckbox = document.getElementById('notify-me');
 function setPermission(data) {
   return db
     .notificationPermission
-    .put({isAllowed: data});
+    .where("id")
+    .equals(1)
+    .modify({isAllowed: data});
 }
 
 notifyMeCheckbox.addEventListener('change', (event) => {
@@ -71,7 +73,7 @@ notifyMeCheckbox.addEventListener('change', (event) => {
       });
     }
   } else {
-    alert('not checked');
+    setPermission(false);
   }
 })
 
@@ -92,3 +94,7 @@ function isOnline() {
 window.addEventListener('online', isOnline);
 window.addEventListener('offline', isOnline);
 isOnline();
+
+db
+  .notificationPermission
+  .put({id: 1, isAllowed: false});
