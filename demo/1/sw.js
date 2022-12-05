@@ -24,17 +24,7 @@ function sendToChat()
     }
 
     db.table('messages').each((item) => {
-
-      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${item.text}`, params)
-        .then(() => {
-          new Dexie('UnsyncData').open().then(db => {
-            db.table('notificationPermission').get(1).then((permission) => {
-              if (permission.isAllowed) {
-                self.registration.showNotification('Ваше обращение доставлено');
-              }
-            });
-          });
-        });
+      fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${item.text}`, params);
     });
 
     db.table('messages').clear();
