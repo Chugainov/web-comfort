@@ -97,4 +97,4 @@ isOnline();
 
 db
   .notificationPermission
-  .put({id: 1, isAllowed: false});
+  .put({ id: 1, isAllowed: false });
