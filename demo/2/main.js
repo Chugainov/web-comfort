@@ -19,8 +19,7 @@ if ('serviceWorker' in navigator) {
       document
         .getElementById('send')
         .addEventListener('click', (e) => {
-          e.preventDefault();          
-
+          e.preventDefault();
           const message = document
             .getElementById('msg')
             .value;
@@ -47,32 +46,13 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-const notifyMeCheckbox = document.getElementById('notify-me');
-
-notifyMeCheckbox.addEventListener('change', (event) => {
-  if (event.currentTarget.checked) {
-    if (!("Notification" in window)) {
-      alert("This browser does not support desktop notification");
-    } else if (Notification.permission === "granted") {
-      
-    } else if (Notification.permission !== "denied") {
-      Notification.requestPermission();
-    }
-  } else {
-    alert('not checked');
-  }
-})
-
 function isOnline() {
   let connectionStatus = document.getElementById('connectionStatus');
-  const notifyMeElement = document.getElementById('notify-me-element');
 
   if (navigator.onLine) {
     connectionStatus.innerHTML = 'Вы онлайн! <br>Сообщение будет отправлено немедленно!';
-    notifyMeElement.classList.add('notify-me-element--hidden');
   } else {
     connectionStatus.innerHTML = 'Вы офлайн! <br>Сообщение будет отправлено, когда появится сеть!';
-    notifyMeElement.classList.remove('notify-me-element--hidden')
   }
 }
 

@@ -8,19 +8,21 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 35%;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .header {
   text-align: center;
   font-size: 50px;
+  margin: 0;
 }
 
 label {
   margin-top: 20px;
   text-align: center;
+  margin-bottom: 16px;
 }
 
 textarea {
@@ -48,7 +50,7 @@ textarea {
 }
 
 .send:active {
-  background-color: rgba(70, 25, 17, .3);;
+  background-color: rgba(70, 25, 17, .3);
 }
 
 .parchment {
@@ -58,6 +60,6 @@ textarea {
   background-image: url(./ScrollGif_1.png);
   background-repeat: no-repeat;
   background-position: center;
-  height: 650px;
+  height: 500px;
   background-size: contain;
 }

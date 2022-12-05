@@ -8,9 +8,9 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 45%;
   font-weight: bold;
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .header {
@@ -19,21 +19,9 @@ body {
   margin: 0;
 }
 
-.main-label {
+label {
   margin-top: 20px;
   text-align: center;
-  margin-bottom: 16px;
-}
-
-.notify-me-element {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-}
-
-.notify-me-element--hidden {
-  display: none;
 }
 
 textarea {
@@ -62,6 +50,7 @@ textarea {
 
 .send:active {
   background-color: rgba(70, 25, 17, .3);
+  ;
 }
 
 .parchment {
@@ -71,6 +60,6 @@ textarea {
   background-image: url(./ScrollGif_1.png);
   background-repeat: no-repeat;
   background-position: center;
-  height: 500px;
+  height: 650px;
   background-size: contain;
 }
