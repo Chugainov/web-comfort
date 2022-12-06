@@ -1,4 +1,4 @@
-importScripts('./dexie.js');
+importScripts('../shared/dexie.js');
 
 self.addEventListener('install', function(event) {
   self.skipWaiting();
