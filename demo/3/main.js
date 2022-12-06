@@ -17,7 +17,7 @@ function clearLocal() {
 
   return db
     .messages
-    .put({text: data});
+    .clear();
 }
 
 if ('serviceWorker' in navigator) {

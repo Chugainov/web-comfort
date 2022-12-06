@@ -85,6 +85,12 @@ textarea {
 
 .reject {
   display: block;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid rgb(70, 25, 17);
 }
 
 .reject--hidden {
