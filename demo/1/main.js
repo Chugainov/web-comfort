@@ -16,6 +16,7 @@ if ('serviceWorker' in navigator) {
     .register('./sw.js')
     .then(() => navigator.serviceWorker.ready)
     .then((registration) => {
+      
       document
         .getElementById('send')
         .addEventListener('click', (e) => {

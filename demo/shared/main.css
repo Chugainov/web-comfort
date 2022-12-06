@@ -19,21 +19,10 @@ body {
   margin: 0;
 }
 
-.main-label {
+label {
   margin-top: 20px;
   text-align: center;
   margin-bottom: 16px;
-}
-
-.notify-me-element {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-}
-
-.notify-me-element--hidden {
-  display: none;
 }
 
 textarea {
@@ -73,4 +62,31 @@ textarea {
   background-position: center;
   height: 500px;
   background-size: contain;
+}
+
+.notify-me-element {
+  font-size: 18px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 10px;
+  flex: 1;
+}
+
+.notify-me-element--hidden {
+  display: none;
+}
+
+.offline-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reject {
+  display: block;
+}
+
+.reject--hidden {
+  display: none;
 }

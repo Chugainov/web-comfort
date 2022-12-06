@@ -10,6 +10,16 @@ function putToLocal(data) {
     .put({text: data});
 }
 
+function clearLocal() {
+  document
+    .getElementById('reject')
+    .classList.add('reject--hidden');
+
+  return db
+    .messages
+    .put({text: data});
+}
+
 if ('serviceWorker' in navigator) {
   navigator
     .serviceWorker
@@ -34,8 +44,12 @@ if ('serviceWorker' in navigator) {
               });
           }).then(() => {
             document
-            .getElementById('msg')
-            .value = '';
+              .getElementById('msg')
+              .value = '';
+            
+            document
+              .getElementById('reject')
+              .classList.remove('reject--hidden');
           });
         });
     });
@@ -46,6 +60,8 @@ if ('serviceWorker' in navigator) {
       console.log('Fallback to fetch the image as usual');
     });
 }
+
+document.getElementById('reject').addEventListener('click', clearLocal)
 
 const notifyMeCheckbox = document.getElementById('notify-me');
 

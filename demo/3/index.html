@@ -18,10 +18,13 @@
       <textarea name="message" id="msg" cols="30" rows="5"></textarea>
     </div>
     <button id="send" class="send">Отправить обращение</button>
-    <label id="notify-me-element" class="notify-me-element notify-me-element--hidden">
-      <input type="checkbox" id="notify-me">
-      Уведомить, когда будет отправлено
-    </label>
+    <div class="offline-actions">
+      <button id="reject" class="reject reject--hidden">Отменить отправку</button>
+      <label id="notify-me-element" class="notify-me-element notify-me-element--hidden">
+        <input type="checkbox" id="notify-me">
+        Уведомить, когда будет отправлено
+      </label>
+    </div>
   </div>
   <script src="main.js"></script>
 </body>
