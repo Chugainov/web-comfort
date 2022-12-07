@@ -105,7 +105,7 @@ function isOnline() {
 
     document
       .getElementById('reject')
-      .classList.remove('reject--hidden');
+      .classList.add('reject--hidden');
   } else {
     connectionStatus.innerHTML = 'Вы офлайн! <br>Сообщение будет отправлено, когда появится сеть!';
     notifyMeElement.classList.remove('notify-me-element--hidden')
