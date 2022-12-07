@@ -8,7 +8,7 @@ body {
 .form {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 60%;
   font-weight: bold;
   font-size: 35px;
 }
