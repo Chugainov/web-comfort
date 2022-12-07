@@ -102,6 +102,10 @@ function isOnline() {
   if (navigator.onLine) {
     connectionStatus.innerHTML = 'Вы онлайн! <br>Сообщение будет отправлено немедленно!';
     notifyMeElement.classList.add('notify-me-element--hidden');
+
+    document
+      .getElementById('reject')
+      .classList.remove('reject--hidden');
   } else {
     connectionStatus.innerHTML = 'Вы офлайн! <br>Сообщение будет отправлено, когда появится сеть!';
     notifyMeElement.classList.remove('notify-me-element--hidden')

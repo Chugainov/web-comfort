@@ -111,8 +111,8 @@
                     <p class="info-line">Фронтенд разработчик</p>
                 </div>
                 <div class="contacts">
-                    <h2>Contacts:</h2>
-                    <p class="info-line">Email: kiryl.chuhainau@itechart-group.com</p>
+                    <h2>Контакты:</h2>
+                    <p class="info-line">Email: chugainov.kirill@gmail.com</p>
                     <p class="info-line">Telegram: @kichug</p>
                     <p class="info-line">Twitter: <a href="https://twitter.com/Chugainovkirill">@Chugainovkirill</a></p>
                 </div>
@@ -218,9 +218,6 @@
             <li class="next">
                 Навязывает использование чего-либо
             </li>
-            <li class="next">
-                Принимает решения за пользователя
-            </li>
         </ul>
         <figure>
             <img class="cover" src="pictures/what is comfort.png" alt="">
@@ -234,7 +231,7 @@
     </section>
 
     <section class="slide clear">
-        <h2>Демо 0</h2>
+        <h2>Демо</h2>
         <figure style="text-align: center;">
             <img width="40%" src="pictures/qr-code.png">
         </figure>
@@ -296,7 +293,7 @@
         <p>Сервис воркер — это javascript файл, который работает в отдельном потоке. Может перехватывать запросы и
             модифицировать их.</p>
         <figure>
-            <img class="cover sw-schema next" src="pictures/service-worker.svg" alt="схема расположения сервис воркера">
+            <img class="cover sw-schema" src="pictures/service-worker.svg" alt="схема расположения сервис воркера">
         </figure>
         <style>
             .cover.sw-schema {
@@ -307,9 +304,14 @@
 
     <section class="slide">
         <h2>Что такое Background Sync API?</h2>
-        <p>Это часть Service Worker API. Обычно севрис-воркер работает только когда страница открыта у пользователя.
+        <p>
+            Это часть Service Worker API.
         </p>
-        <p>Background Sync API позволяет выполнить синхронизацию повторно, если прошлая попытка была неуспешной. </p>
+        <p>
+            Обычно севрис-воркер работает только когда страница открыта у пользователя. Background Sync активизирует
+            сервис воркер даже, если страница закрыта.
+        </p>
+        <p>Background Sync API позволяет выполнить действие повторно, если прошлая попытка была неуспешной. </p>
     </section>
 
     <section class="slide">
@@ -339,7 +341,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="next">Почему не localStorage?</h2>
+        <h2>Почему не localStorage?</h2>
         <ul>
             <li class="next">Может хранить гораздо больше данных</li>
             <li class="next">Хранит нативныне JS объекты без сериализации</li>
@@ -367,7 +369,7 @@
     </section>
 
     <section class="slide clear">
-        <h2>Демо 1</h2>
+        <h2>Демо льва</h2>
         <figure style="text-align: center;">
             <img width="40%" src="pictures/qr-code.png">
         </figure>
@@ -382,10 +384,10 @@
     <section class="slide">
         <h2>Претензии зайцев:</h2>
         <ul>
-            <li class="next">
-                Мы не поняли, что мы оффлайн
+            <li>
+                Мы не поняли, что мы офлайн
             </li>
-            <li class="next">
+            <li>
                 Никто не сообщил, что данные куда-то отправятся потом
             </li>
         </ul>
@@ -421,7 +423,7 @@
     <section class="slide">
         <h2>Notification API</h2>
         <p>Notification API позволяет показывать уведомления пользователю даже при закрытой странице.</p>
-        <p>В отличие от Backgroun Sync API, требует получить разрешение на использование.</p>
+        <p>В отличие от Background Sync API, требует получить разрешение на использование.</p>
     </section>
 
     <section class="slide">
@@ -451,7 +453,7 @@
     </section>
 
     <section class="slide clear">
-        <h2>Демо 2</h2>
+        <h2>Демо зайцев</h2>
         <figure style="text-align: center;">
             <img width="40%" src="pictures/qr-code.png">
         </figure>
@@ -466,8 +468,8 @@
     <section class="slide">
         <h2>Претензии слона:</h2>
         <ul>
-            <li class="next">
-                Пока всё отправилось, мне уже не нужно их отправлять
+            <li>
+                Пока всё отправилось, мне уже не нужно ничего отправлять
             </li>
         </ul>
     </section>
@@ -495,7 +497,7 @@
     </section>
 
     <section class="slide clear">
-        <h2>Демо 3</h2>
+        <h2>Демо слона</h2>
         <figure style="text-align: center;">
             <img width="40%" src="pictures/qr-code.png">
         </figure>
@@ -541,7 +543,7 @@
 
     <section class="slide">
         <h2>Cookie</h2>
-        <p>Хранит ~4 КБ данных, которые можно передавать на сервер.</p>
+        <p>Хранит ~4 КБ данных, которые отправляются на сервер в заголовке.</p>
         <p class="next">Срок хранения устанавливается при создании.</p>
         <p class="next">Могут быть защищены от доступа на клиенте.</p>
     </section>
@@ -570,10 +572,6 @@
                 <p> <b>IE 10+</b>: до 250 МБ. Спрашивает, если требуется сохранить более 10 МБ.</p>
             </li>
         </ul>
-    </section>
-
-    <section class="slide">
-        <h2>А зачем мы собрались</h2>
     </section>
 
     <section class="slide">
@@ -764,6 +762,9 @@
             </li>
             <li class="next">
                 <p> Есть ли у вас экспертиза в <b>ЭТОМ</b>? </p>
+            </li>
+            <li class="next">
+                <p> Есть ли примеры негативного опыта с <b>ЭТИМ</b>? </p>
             </li>
         </ul>
     </section>
